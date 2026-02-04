@@ -491,12 +491,41 @@
         }
 
         .bar-chart {
+            display: flex !important;
+            align-items: flex-end !important;
+            justify-content: space-around;
+            height: 160px;
+            gap: 8px;
+            min-width: 280px;
+        }
+
+        .bar-item {
+            flex: 1;
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 60px;
+            height: 100%;
+            justify-content: flex-end !important;
+        }
+
+        .bar {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            align-self: flex-end;
+        }
+
+        .bar-chart {
             display: flex;
             align-items: flex-end;
             justify-content: space-around;
             height: 160px;
             gap: 8px;
             min-width: 280px;
+            position: relative;
         }
 
         @media (min-width: 480px) {
@@ -513,6 +542,8 @@
             align-items: center;
             gap: 8px;
             min-width: 60px;
+            height: 100%;
+            justify-content: flex-end;
         }
 
         .bar {
@@ -520,7 +551,7 @@
             border-radius: 8px 8px 0 0;
             transition: all 0.3s ease;
             position: relative;
-            min-height: 20px;
+            flex-shrink: 0;
         }
 
         .bar-value {
@@ -846,31 +877,31 @@
                             <div class="card-subtitle">Xu hướng thay đổi qua hai thập kỷ</div>
                         </div>
                     </div>
-                    <div class="chart-container">
-                        <div class="bar-chart">
-                            <div class="bar-item">
-                                <div class="bar" style="height: 100%; background: linear-gradient(180deg, #10b981 0%, #059669 100%);">
-                                    <span class="bar-value">360,3</span>
+                    <div style="background: #f8fafc; border-radius: 12px; padding: 16px; margin: 16px 0;">
+                        <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 200px; gap: 8px; padding-top: 30px;">
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 160px; background: linear-gradient(180deg, #10b981 0%, #059669 100%); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">360,3</span>
                                 </div>
-                                <span class="bar-label">Ngô<br>2020</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Ngô<br>2020</span>
                             </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 31.2%; background: linear-gradient(180deg, #34d399 0%, #10b981 100%);">
-                                    <span class="bar-value">112,5</span>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 50px; background: linear-gradient(180deg, #34d399 0%, #10b981 100%); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">112,5</span>
                                 </div>
-                                <span class="bar-label">Đậu<br>2020</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Đậu<br>2020</span>
                             </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 13.8%; background: linear-gradient(180deg, #6ee7b7 0%, #34d399 100%);">
-                                    <span class="bar-value">49,7</span>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 22px; background: linear-gradient(180deg, #6ee7b7 0%, #34d399 100%); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">49,7</span>
                                 </div>
-                                <span class="bar-label">Lúa mì<br>2020</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Lúa mì<br>2020</span>
                             </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 21.5%; background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);">
-                                    <span class="bar-value">77,3</span>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 34px; background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">77,3</span>
                                 </div>
-                                <span class="bar-label">Lợn<br>2020</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Lợn<br>2020</span>
                             </div>
                         </div>
                     </div>
@@ -1016,31 +1047,31 @@
                             <div class="card-subtitle">Cách mạng shale oil thay đổi địa chính trị</div>
                         </div>
                     </div>
-                    <div class="chart-container">
-                        <div class="bar-chart">
-                            <div class="bar-item">
-                                <div class="bar" style="height: 11.3%; background: linear-gradient(180deg, #64748b, #475569);">
-                                    <span class="bar-value">484,7</span>
+                    <div style="background: #f8fafc; border-radius: 12px; padding: 16px; margin: 16px 0;">
+                        <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 200px; gap: 8px; padding-top: 30px;">
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 18px; background: linear-gradient(180deg, #64748b, #475569); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">484,7</span>
                                 </div>
-                                <span class="bar-label">Than đá</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Than đá</span>
                             </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 16.6%; background: linear-gradient(180deg, #fbbf24, #d97706);">
-                                    <span class="bar-value">712,7</span>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 27px; background: linear-gradient(180deg, #fbbf24, #d97706); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">712,7</span>
                                 </div>
-                                <span class="bar-label">Dầu mỏ</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Dầu mỏ</span>
                             </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 21.3%; background: linear-gradient(180deg, #60a5fa, #3b82f6);">
-                                    <span class="bar-value">914,6</span>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 34px; background: linear-gradient(180deg, #60a5fa, #3b82f6); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">914,6</span>
                                 </div>
-                                <span class="bar-label">Khí đốt</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Khí đốt</span>
                             </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 100%; background: linear-gradient(180deg, #a78bfa, #8b5cf6);">
-                                    <span class="bar-value">4286,6</span>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 160px; background: linear-gradient(180deg, #a78bfa, #8b5cf6); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">4286,6</span>
                                 </div>
-                                <span class="bar-label">Điện</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Điện</span>
                             </div>
                         </div>
                     </div>
@@ -1197,25 +1228,25 @@
                             <div class="card-subtitle">Cường quốc thương mại toàn cầu</div>
                         </div>
                     </div>
-                    <div class="chart-container">
-                        <div class="bar-chart">
-                            <div class="bar-item">
-                                <div class="bar" style="height: 43.6%; background: linear-gradient(180deg, #10b981, #059669);">
-                                    <span class="bar-value">2.148,6</span>
+                    <div style="background: #f8fafc; border-radius: 12px; padding: 16px; margin: 16px 0;">
+                        <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 200px; gap: 8px; padding-top: 30px;">
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 70px; background: linear-gradient(180deg, #10b981, #059669); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">2.148,6</span>
                                 </div>
-                                <span class="bar-label">Xuất khẩu</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Xuất khẩu</span>
                             </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 56.4%; background: linear-gradient(180deg, #ef4444, #dc2626);">
-                                    <span class="bar-value">2.776,1</span>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 90px; background: linear-gradient(180deg, #ef4444, #dc2626); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">2.776,1</span>
                                 </div>
-                                <span class="bar-label">Nhập khẩu</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Nhập khẩu</span>
                             </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 100%; background: linear-gradient(180deg, #f59e0b, #d97706);">
-                                    <span class="bar-value">4.924,7</span>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 60px; height: 100%;">
+                                <div style="width: 100%; height: 160px; background: linear-gradient(180deg, #f59e0b, #d97706); border-radius: 8px 8px 0 0; position: relative;">
+                                    <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.8rem; white-space: nowrap; color: #1e293b;">4.924,7</span>
                                 </div>
-                                <span class="bar-label">Tổng</span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #64748b; text-align: center; margin-top: 8px;">Tổng</span>
                             </div>
                         </div>
                     </div>
