@@ -899,6 +899,39 @@
             }
         }
 
+        /* Refresh Button */
+        .refresh-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .refresh-btn:hover {
+            transform: scale(1.1) rotate(180deg);
+        }
+
+        .refresh-btn:active {
+            transform: scale(0.95);
+        }
+
+        .refresh-btn.spinning {
+            animation: spin 1s linear infinite;
+        }
+
         /* Data Source Tag */
         .data-source {
             display: inline-block;
@@ -917,7 +950,7 @@
 <body>
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loader"></div>
-        <div class="loading-text">Đang cập nhật dữ liệu...</div>
+        <div class="loading-text">Đang kết nối API EIA & Census...</div>
     </div>
 
     <div class="bg-animation"></div>
@@ -954,7 +987,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">🌾</div>
                         <div class="card-title-group">
-                            <div class="card-title">Nông Nghiệp Hiện Đại <span class="data-source">FAO 2024</span></div>
+                            <div class="card-title">Nông Nghiệp Hiện Đại <span class="data-source">FAO</span></div>
                             <div class="card-subtitle">Quy mô lớn, năng suất cao - Hàng đầu thế giới</div>
                         </div>
                     </div>
@@ -991,7 +1024,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">📊</div>
                         <div class="card-title-group">
-                            <div class="card-title">Sản Lượng Nông Nghiệp <span class="data-source">USDA 2024</span></div>
+                            <div class="card-title">Sản Lượng Nông Nghiệp <span class="data-source">USDA</span></div>
                             <div class="card-subtitle">Dữ liệu từ Bộ Nông nghiệp Mỹ</div>
                         </div>
                     </div>
@@ -1040,7 +1073,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">🌲</div>
                         <div class="card-title-group">
-                            <div class="card-title">Lâm Nghiệp Công Nghiệp <span class="data-source">FAO 2023</span></div>
+                            <div class="card-title">Lâm Nghiệp Công Nghiệp <span class="data-source">FAO</span></div>
                             <div class="card-subtitle">Sản lượng gỗ lớn nhất thế giới</div>
                         </div>
                     </div>
@@ -1075,7 +1108,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">🐟</div>
                         <div class="card-title-group">
-                            <div class="card-title">Thủy Sản & Khai Thác <span class="data-source">NOAA 2024</span></div>
+                            <div class="card-title">Thủy Sản & Khai Thác <span class="data-source">NOAA</span></div>
                             <div class="card-subtitle">Nguồn lợi đa dạng và công nghệ cao</div>
                         </div>
                     </div>
@@ -1120,7 +1153,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">⚙️</div>
                         <div class="card-title-group">
-                            <div class="card-title">Công Nghiệp Đa Dạng <span class="data-source">BLS 2024</span></div>
+                            <div class="card-title">Công Nghiệp Đa Dạng <span class="data-source">BLS</span></div>
                             <div class="card-subtitle">Từ truyền thống đến công nghệ cao</div>
                         </div>
                     </div>
@@ -1155,7 +1188,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">⛽</div>
                         <div class="card-title-group">
-                            <div class="card-title">Năng Lượng & Khai Khoáng <span class="live-indicator"><span class="live-dot"></span>LIVE</span> <span class="data-source">EIA 2024</span></div>
+                            <div class="card-title">Năng Lượng & Khai Khoáng <span class="live-indicator"><span class="live-dot"></span>LIVE</span> <span class="data-source" id="energy-year-tag">EIA</span></div>
                             <div class="card-subtitle">Dữ liệu thời gian thực từ EIA API</div>
                         </div>
                     </div>
@@ -1297,7 +1330,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">💼</div>
                         <div class="card-title-group">
-                            <div class="card-title">Dịch Vụ - Trụ Cột Kinh Tế <span class="data-source">BEA 2024</span></div>
+                            <div class="card-title">Dịch Vụ - Trụ Cột Kinh Tế <span class="data-source">BEA</span></div>
                             <div class="card-subtitle">Nền tảng của nền kinh tế tri thức</div>
                         </div>
                     </div>
@@ -1333,7 +1366,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">📈</div>
                         <div class="card-title-group">
-                            <div class="card-title">Thương Mại Quốc Tế <span class="live-indicator"><span class="live-dot"></span>LIVE</span> <span class="data-source">Census 2024</span></div>
+                            <div class="card-title">Thương Mại Quốc Tế <span class="live-indicator"><span class="live-dot"></span>LIVE</span> <span class="data-source" id="trade-year-tag">Census</span></div>
                             <div class="card-subtitle">Dữ liệu thời gian thực từ Census Bureau API</div>
                         </div>
                     </div>
@@ -1382,7 +1415,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">🏦</div>
                         <div class="card-title-group">
-                            <div class="card-title">Tài Chính Ngân Hàng <span class="data-source">Fed 2024</span></div>
+                            <div class="card-title">Tài Chính Ngân Hàng <span class="data-source">Fed</span></div>
                             <div class="card-subtitle">Trung tâm tài chính toàn cầu</div>
                         </div>
                     </div>
@@ -1460,7 +1493,7 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">✈️</div>
                         <div class="card-title-group">
-                            <div class="card-title">Du Lịch và Dịch Vụ Lữ Hành <span class="data-source">NTTO 2024</span></div>
+                            <div class="card-title">Du Lịch và Dịch Vụ Lữ Hành <span class="data-source">NTTO</span></div>
                             <div class="card-subtitle">Phục hồi mạnh sau COVID, đạt kỷ lục mới</div>
                         </div>
                     </div>
@@ -1503,44 +1536,44 @@
         </section>
 
         <footer class="footer">
-            <div class="footer-title">Nguồn Dữ Liệu Chính Thức</div>
+            <div class="footer-title">Nguồn Dữ Liệu Trực Tuyến (API)</div>
             <div class="footer-api-status" id="apiStatus">
                 <div class="api-status-item online">
                     <span class="api-status-dot"></span>
-                    Năng lượng (EIA)
+                    EIA (Năng lượng)
                 </div>
                 <div class="api-status-item online">
                     <span class="api-status-dot"></span>
-                    Thương mại (Census)
+                    Census Bureau (Thương mại)
                 </div>
                 <div class="api-status-item online">
                     <span class="api-status-dot"></span>
-                    Nông nghiệp (USDA/FAO)
+                    FAO/USDA (Nông nghiệp)
                 </div>
                 <div class="api-status-item online">
                     <span class="api-status-dot"></span>
-                    Kinh tế vĩ mô (BEA/BLS)
+                    BEA/BLS (Kinh tế vĩ mô)
                 </div>
             </div>
             <div class="footer-source">
                 Dữ liệu được cập nhật tự động từ:<br>
-                • <strong>Cục Thông tin Năng lượng Hoa Kỳ (EIA)</strong> - Sản xuất điện, dầu khí, than, năng lượng tái tạo [^10^]<br>
-                • <strong>Cục Thống kê Dân số Hoa Kỳ - Thương mại Quốc tế</strong> - Xuất nhập khẩu, cán cân thương mại [^1^][^3^]<br>
+                • <strong>U.S. Energy Information Administration (EIA) API</strong> - Sản xuất điện, dầu khí, than, năng lượng tái tạo [^10^]<br>
+                • <strong>U.S. Census Bureau International Trade API</strong> - Xuất nhập khẩu, cán cân thương mại [^1^][^3^]<br>
                 • <strong>World Bank Open Data</strong> - Chỉ số GDP, phát triển kinh tế [^2^][^11^]<br>
                 • <strong>FAO/USDA/NASS</strong> - Sản lượng nông nghiệp (cập nhật thủ công)<br>
                 • <strong>Bureau of Economic Analysis (BEA)</strong> - Cơ cấu GDP theo ngành<br>
                 <br>
-                <em>Số liệu EIA và Census được cập nhật tự động. FAO cập nhật thủ công hàng năm.<br>
+                <em>Số liệu EIA và Census được cập nhật qua API. FAO cập nhật thủ công hàng năm.<br>
                 Dữ liệu có độ trễ 1-3 tháng do chu kỳ công bố chính thức.</em>
             </div>
             <div class="footer-copy">
                 © <span id="copyrightYear">2026</span> <strong>Huy Nguyễn</strong> - Infographic Tương Tác | Dữ liệu thời gian thực<br>
-                Dữ liệu được tích hợp từ các nguồn chính thức của Chính phủ Hoa Kỳ | Cập nhật: <span id="footerTime">2024</span>
+                Được phát triển với EIA API & Census Bureau API | Cập nhật: <span id="footerTime">2024</span>
             </div>
         </footer>
     </div>
 
-    
+    <button class="refresh-btn" id="refreshBtn" onclick="refreshData()" title="Làm mới dữ liệu">↻</button>
 
     <script>
         // API Keys được inject bởi GitHub Actions
@@ -1700,10 +1733,11 @@
 
         function getMockCensusData() {
             return {
-                exports: 3050,
-                imports: 3950,
-                deficit: 900,
-                total: 7000
+                exports: 3052, // tỷ USD
+                imports: 3951, // tỷ USD  
+                deficit: 899,  // tỷ USD
+                total: 7003,   // tỷ USD
+                year: 2024     // năm dữ liệu
             };
         }
 
