@@ -24,10 +24,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      # Bước này sẽ thay thế placeholder trong HTML bằng API Key thật từ GitHub Secrets
       - name: Inject API Keys into HTML
         run: |
-          sed -i 's/{{EIA_API_KEY}}/GV6neHooAJjEUbyLFey4YLamCaqu1c1bkkitj5vT/g' index.html
-          sed -i 's/{{CENSUS_API_KEY}}/ffb2b5d733818576973467bb8ad5f4473e3556a6/g' index.html
+          sed -i 's/{{FRED_API_KEY}}/${{ secrets.FRED_API_KEY }}/g' index.html
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
