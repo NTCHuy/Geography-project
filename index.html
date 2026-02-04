@@ -899,39 +899,6 @@
             }
         }
 
-        /* Refresh Button */
-        .refresh-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .refresh-btn:hover {
-            transform: scale(1.1) rotate(180deg);
-        }
-
-        .refresh-btn:active {
-            transform: scale(0.95);
-        }
-
-        .refresh-btn.spinning {
-            animation: spin 1s linear infinite;
-        }
-
         /* Data Source Tag */
         .data-source {
             display: inline-block;
@@ -945,11 +912,12 @@
         }
     </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loader"></div>
-        <div class="loading-text">Đang kết nối API EIA & Census...</div>
+        <div class="loading-text">Đang cập nhật dữ liệu...</div>
     </div>
 
     <div class="bg-animation"></div>
@@ -1535,44 +1503,44 @@
         </section>
 
         <footer class="footer">
-            <div class="footer-title">Nguồn Dữ Liệu Trực Tuyến (API)</div>
+            <div class="footer-title">Nguồn Dữ Liệu Chính Thức</div>
             <div class="footer-api-status" id="apiStatus">
                 <div class="api-status-item online">
                     <span class="api-status-dot"></span>
-                    EIA (Năng lượng)
+                    Năng lượng (EIA)
                 </div>
                 <div class="api-status-item online">
                     <span class="api-status-dot"></span>
-                    Census Bureau (Thương mại)
+                    Thương mại (Census)
                 </div>
                 <div class="api-status-item online">
                     <span class="api-status-dot"></span>
-                    FAO/USDA (Nông nghiệp)
+                    Nông nghiệp (USDA/FAO)
                 </div>
                 <div class="api-status-item online">
                     <span class="api-status-dot"></span>
-                    BEA/BLS (Kinh tế vĩ mô)
+                    Kinh tế vĩ mô (BEA/BLS)
                 </div>
             </div>
             <div class="footer-source">
                 Dữ liệu được cập nhật tự động từ:<br>
-                • <strong>U.S. Energy Information Administration (EIA) API</strong> - Sản xuất điện, dầu khí, than, năng lượng tái tạo [^10^]<br>
-                • <strong>U.S. Census Bureau International Trade API</strong> - Xuất nhập khẩu, cán cân thương mại [^1^][^3^]<br>
+                • <strong>Cục Thông tin Năng lượng Hoa Kỳ (EIA)</strong> - Sản xuất điện, dầu khí, than, năng lượng tái tạo [^10^]<br>
+                • <strong>Cục Thống kê Dân số Hoa Kỳ - Thương mại Quốc tế</strong> - Xuất nhập khẩu, cán cân thương mại [^1^][^3^]<br>
                 • <strong>World Bank Open Data</strong> - Chỉ số GDP, phát triển kinh tế [^2^][^11^]<br>
                 • <strong>FAO/USDA/NASS</strong> - Sản lượng nông nghiệp (cập nhật thủ công)<br>
                 • <strong>Bureau of Economic Analysis (BEA)</strong> - Cơ cấu GDP theo ngành<br>
                 <br>
-                <em>Số liệu EIA và Census được cập nhật qua API. FAO cập nhật thủ công hàng năm.<br>
+                <em>Số liệu EIA và Census được cập nhật tự động. FAO cập nhật thủ công hàng năm.<br>
                 Dữ liệu có độ trễ 1-3 tháng do chu kỳ công bố chính thức.</em>
             </div>
             <div class="footer-copy">
-                © 2024 <strong>Huy Nguyễn</strong> - Infographic Tương Tác | Dữ liệu thời gian thực<br>
-                Được phát triển với EIA API & Census Bureau API | Cập nhật: <span id="footerTime">2024</span>
+                © <span id="copyrightYear">2026</span> <strong>Huy Nguyễn</strong> - Infographic Tương Tác | Dữ liệu thời gian thực<br>
+                Dữ liệu được tích hợp từ các nguồn chính thức của Chính phủ Hoa Kỳ | Cập nhật: <span id="footerTime">2024</span>
             </div>
         </footer>
     </div>
 
-    <button class="refresh-btn" id="refreshBtn" onclick="refreshData()" title="Làm mới dữ liệu">↻</button>
+    
 
     <script>
         // API Keys được inject bởi GitHub Actions
