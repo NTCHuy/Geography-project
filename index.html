@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="Infographic tương tác về các ngành kinh tế Hoa Kỳ - Nông nghiệp, Công nghiệp, Dịch vụ">
+    <title>Các Ngành Kinh Tế Hoa Kỳ | Infographic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #059669;
+            --primary-red: #dc2626;
+            --primary-gold: #d97706;
+            --dark-bg: #0f172a;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border-radius: 16px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.15);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.2);
+            --safe-area-top: env(safe-area-inset-top);
+            --safe-area-bottom: env(safe-area-inset-bottom);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(120, 219, 255, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 16px;
+            padding-bottom: calc(20px + var(--safe-area-bottom));
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 16px;
+            position: relative;
+        }
+
+        .header-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: #94a3b8;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header h1 {
+            font-size: clamp(1.8rem, 6vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .header p {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            padding: 0 10px;
+        }
+
+        /* Navigation - Mobile Optimized */
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0 30px;
+            padding: 0 4px;
+        }
+
+        @media (min-width: 640px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: center;
+                gap: 12px;
+            }
+        }
+
+        .nav-btn {
+            width: 100%;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            min-height: 56px;
+            -webkit-touch-callout: none;
+        }
+
+        @media (min-width: 640px) {
+            .nav-btn {
+                width: auto;
+                min-width: 160px;
+                padding: 16px 28px;
+            }
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .nav-btn:active {
+            transform: scale(0.98);
+        }
+
+        .nav-btn.agriculture {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            box-shadow: 0 4px 15px -5px rgba(5, 150, 105, 0.5);
+        }
+
+        .nav-btn.industry {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            box-shadow: 0 4px 15px -5px rgba(220, 38, 38, 0.5);
+        }
+
+        .nav-btn.services {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            box-shadow: 0 4px 15px -5px rgba(217, 119, 6, 0.5);
+        }
+
+        .nav-btn.active {
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.2), 0 8px 25px -5px rgba(0,0,0,0.3);
+            transform: scale(1.02);
+        }
+
+        .nav-btn .icon {
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards Grid - Mobile First */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 24px;
+            }
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--card-color, #ccc);
+        }
+
+        .card.agriculture { --card-color: #10b981; }
+        .card.industry { --card-color: #ef4444; }
+        .card.services { --card-color: #f59e0b; }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            gap: 12px;
+        }
+
+        .card-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .agriculture .card-icon-wrapper { 
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            color: #059669;
+        }
+        .industry .card-icon-wrapper { 
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #dc2626;
+        }
+        .services .card-icon-wrapper { 
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #d97706;
+        }
+
+        .card-title-group {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* Stats Grid - Mobile Optimized */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        @media (min-width: 480px) {
+            .stats-grid {
+                gap: 12px;
+            }
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 12px 8px;
+            background: #f8fafc;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 480px) {
+            .stat-box {
+                padding: 16px 12px;
+            }
+        }
+
+        .stat-number {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .agriculture .stat-number { color: #059669; }
+        .industry .stat-number { color: #dc2626; }
+        .services .stat-number { color: #d97706; }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 480px) {
+            .stat-label {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Action Button */
+        .action-btn {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid;
+            border-radius: 10px;
+            background: transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            min-height: 48px;
+            -webkit-touch-callout: none;
+        }
+
+        .action-btn:active {
+            transform: scale(0.98);
+        }
+
+        .agriculture .action-btn {
+            border-color: #10b981;
+            color: #059669;
+        }
+        .agriculture .action-btn:hover, .agriculture .action-btn:active {
+            background: #059669;
+            color: white;
+        }
+
+        .industry .action-btn {
+            border-color: #ef4444;
+            color: #dc2626;
+        }
+        .industry .action-btn:hover, .industry .action-btn:active {
+            background: #dc2626;
+            color: white;
+        }
+
+        .services .action-btn {
+            border-color: #f59e0b;
+            color: #d97706;
+        }
+        .services .action-btn:hover, .services .action-btn:active {
+            background: #d97706;
+            color: white;
+        }
+
+        /* Detail Panel */
+        .detail-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+            opacity: 0;
+        }
+
+        .detail-panel.show {
+            max-height: 2000px;
+            opacity: 1;
+            margin-top: 16px;
+        }
+
+        .detail-content {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 3px solid var(--detail-color, #ccc);
+        }
+
+        @media (min-width: 768px) {
+            .detail-content {
+                padding: 20px;
+            }
+        }
+
+        .agriculture .detail-content { --detail-color: #10b981; }
+        .industry .detail-content { --detail-color: #ef4444; }
+        .services .detail-content { --detail-color: #f59e0b; }
+
+        .detail-list {
+            list-style: none;
+        }
+
+        .detail-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .detail-list li:last-child {
+            border-bottom: none;
+        }
+
+        .detail-list li::before {
+            content: '→';
+            font-weight: 700;
+            color: var(--detail-color, #ccc);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .detail-list strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 160px;
+            gap: 8px;
+            min-width: 280px;
+        }
+
+        @media (min-width: 480px) {
+            .bar-chart {
+                height: 180px;
+                gap: 12px;
+            }
+        }
+
+        .bar-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 60px;
+        }
+
+        .bar {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 20px;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            color: var(--text-dark);
+        }
+
+        @media (min-width: 480px) {
+            .bar-value {
+                font-size: 0.85rem;
+                top: -24px;
+            }
+        }
+
+        .bar-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 480px) {
+            .bar-label {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Timeline - Mobile */
+        .timeline {
+            padding: 8px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 16px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--timeline-color, #ccc);
+            border: 2px solid white;
+            box-shadow: 0 0 0 1px var(--timeline-color, #ccc);
+        }
+
+        .agriculture .timeline-item::before { --timeline-color: #10b981; }
+        .industry .timeline-item::before { --timeline-color: #ef4444; }
+        .services .timeline-item::before { --timeline-color: #f59e0b; }
+
+        .timeline-year {
+            width: 85px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            flex-shrink: 0;
+            line-height: 1.4;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-left: 16px;
+            border-left: 2px solid #e2e8f0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+
+        .timeline-content strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Map Grid */
+        .map-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        @media (min-width: 480px) {
+            .map-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+        }
+
+        .region-card {
+            background: white;
+            padding: 14px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #f1f5f9;
+        }
+
+        .region-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .region-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* 4 Stats Grid */
+        .stats-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        @media (min-width: 640px) {
+            .stats-grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .stats-grid-4 .stat-box {
+            padding: 16px 12px;
+        }
+
+        .stats-grid-4 .stat-number {
+            font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 24px 20px;
+            border-radius: 16px;
+            margin-top: 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .highlight-box {
+                padding: 32px;
+            }
+        }
+
+        .highlight-box h3 {
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            margin-bottom: 12px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-box p {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            line-height: 1.7;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px 16px;
+            margin-top: 40px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .footer-source {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .footer-copy {
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #475569;
+            font-size: 0.8rem;
+        }
+
+        /* Full width card */
+        .card-fullwidth {
+            grid-column: 1 / -1;
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .card:hover {
+                transform: none;
+            }
+            .nav-btn:hover {
+                transform: none;
+            }
+            .action-btn:hover {
+                transform: none;
+            }
+        }
+
+        /* Safe area for notch phones */
+        @supports (padding-top: env(safe-area-inset-top)) {
+            .header {
+                padding-top: calc(40px + env(safe-area-inset-top));
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">Infographic Tương Tác</div>
+            <h1>Hoa Kỳ: Cường Quốc Kinh Tế</h1>
+            <p>Khám phá cơ cấu nền kinh tế lớn nhất thế giới qua các số liệu và thông tin chi tiết</p>
+        </header>
+
+        <nav class="nav-container">
+            <button class="nav-btn agriculture active" onclick="showTab('agriculture')">
+                <span class="icon">🌾</span>
+                <span>Nông Nghiệp</span>
+            </button>
+            <button class="nav-btn industry" onclick="showTab('industry')">
+                <span class="icon">⚙️</span>
+                <span>Công Nghiệp</span>
+            </button>
+            <button class="nav-btn services" onclick="showTab('services')">
+                <span class="icon">💼</span>
+                <span>Dịch Vụ</span>
+            </button>
+        </nav>
+
+        <!-- PAGE 1: AGRICULTURE -->
+        <section id="agriculture" class="content-section active">
+            <div class="cards-grid">
+                <article class="card agriculture">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">🌾</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Nông Nghiệp Hiện Đại</div>
+                            <div class="card-subtitle">Quy mô lớn, năng suất cao - Hàng đầu thế giới</div>
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">1,1%</div>
+                            <div class="stat-label">Đóng góp GDP</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">~1%</div>
+                            <div class="stat-label">Lao động</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">#1</div>
+                            <div class="stat-label">Xuất khẩu</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('agri1')">Xem chi tiết ↓</button>
+                    <div id="agri1" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Cây trồng chính:</strong> Lúa mì, ngô (bắp), đậu tương, lúa gạo, cây ăn quả</li>
+                                <li><strong>Chăn nuôi:</strong> Bò thịt và sữa, lợn, gia cầm - Quy mô công nghiệp</li>
+                                <li><strong>Công nghệ:</strong> GPS dẫn đường, drone gieo hạt/phun thuốc, IoT cảm biến</li>
+                                <li><strong>Cơ giới hóa:</strong> 95% diện tích canh tác sử dụng máy móc hiện đại</li>
+                                <li><strong>Trang trại:</strong> Quy mô lớn, tập trung ở vùng Trung Tây (Midwest)</li>
+                                <li><strong>Thị trường:</strong> Xuất khẩu sang Trung Quốc, EU, Mexico, Nhật Bản</li>
+                                <li><strong>Thách thức:</strong> Biến đổi khí hậu, hạn hán, cạnh tranh Brazil/Argentina</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card agriculture">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">📊</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Sản Lượng 2000 - 2020</div>
+                            <div class="card-subtitle">Xu hướng thay đổi qua hai thập kỷ</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar" style="height: 100%; background: linear-gradient(180deg, #10b981 0%, #059669 100%);">
+                                    <span class="bar-value">360,3</span>
+                                </div>
+                                <span class="bar-label">Ngô<br>2020</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 31.2%; background: linear-gradient(180deg, #34d399 0%, #10b981 100%);">
+                                    <span class="bar-value">112,5</span>
+                                </div>
+                                <span class="bar-label">Đậu<br>2020</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 13.8%; background: linear-gradient(180deg, #6ee7b7 0%, #34d399 100%);">
+                                    <span class="bar-value">49,7</span>
+                                </div>
+                                <span class="bar-label">Lúa mì<br>2020</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 21.5%; background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);">
+                                    <span class="bar-value">77,3</span>
+                                </div>
+                                <span class="bar-label">Lợn<br>2020</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('agri2')">So sánh 2000 ↓</button>
+                    <div id="agri2" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Ngô:</strong> 251,9 → 360,3 triệu tấn (+43%) - Nhu cầu ethanol và thức ăn chăn nuôi</li>
+                                <li><strong>Đậu tương:</strong> 75,1 → 112,5 triệu tấn (+50%) - Xuất khẩu sang Trung Quốc tăng</li>
+                                <li><strong>Lúa mì:</strong> 60,6 → 49,7 triệu tấn (-18%) - Cạnh tranh từ Canada, Nga</li>
+                                <li><strong>Đàn bò:</strong> 98,2 → 93,8 triệu con (-4,5%) - Tập trung hóa trang trại</li>
+                                <li><strong>Đàn lợn:</strong> 59,1 → 77,3 triệu con (+31%) - Xuất khẩu thịt lợn tăng</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card agriculture">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">🌲</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Lâm Nghiệp Công Nghiệp</div>
+                            <div class="card-subtitle">Sản lượng gỗ lớn nhất thế giới</div>
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">>400</div>
+                            <div class="stat-label">Triệu m³ gỗ</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">#1</div>
+                            <div class="stat-label">Thế giới</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">33%</div>
+                            <div class="stat-label">Diện tích rừng</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('agri3')">Thông tin ↓</button>
+                    <div id="agri3" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Vùng tập trung:</strong> Núi Rocky, Tây Bắc Thái Bình Dương, ven vịnh Mexico</li>
+                                <li><strong>Loại rừng:</strong> Rừng lá kim chiếm đa số, rừng lá rộng ở phía Đông</li>
+                                <li><strong>Rừng trồng:</strong> Ngày càng phát triển, chiếm ~7% tổng diện tích</li>
+                                <li><strong>Sản phẩm:</strong> Gỗ xẻ, plywood, giấy và bột giấy, ván ép</li>
+                                <li><strong>Chứng nhận:</strong> FSC phổ biến, đảm bảo khai thác bền vững</li>
+                                <li><strong>Thách thức:</strong> Cháy rừng California, sâu bệnh, biến đổi khí hậu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card agriculture">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">🐟</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Thủy Sản & Khai Thác</div>
+                            <div class="card-subtitle">Nguồn lợi đa dạng và công nghệ cao</div>
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">4,3</div>
+                            <div class="stat-label">Triệu tấn khai thác</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">#6</div>
+                            <div class="stat-label">Thế giới</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">0,5</div>
+                            <div class="stat-label">Triệu tấn nuôi</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('agri4')">Chi tiết ↓</button>
+                    <div id="agri4" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Khai thác:</strong> Tôm, cua, cá tuyết (Alaska), cá hồi, cá ngừ</li>
+                                <li><strong>Vùng biển:</strong> Thái Bình Dương, Đại Tây Dương, Vịnh Mexico</li>
+                                <li><strong>Nuôi trồng:</strong> Tăng nhanh 10%/năm - tôm sú, cá hồi, trai ngọc trai</li>
+                                <li><strong>Cảng cá lớn:</strong> Seattle, New Bedford, Dutch Harbor (Alaska)</li>
+                                <li><strong>Quản lý:</strong> NOAA Fisheries, hạn ngạch đánh bắt nghiêm ngặt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🌟 Nông Nghiệp Công Nghệ Cao</h3>
+                <p>Hoa Kỳ chỉ dùng ~1% lao động nhưng sản xuất lương thực đứng đầu thế giới nhờ cơ giới hóa 95%, GPS, drone, IoT và quản lý trang trại kiểu công nghiệp. Một nông dân Mỹ trung bình nuôi sống 166 người.</p>
+            </div>
+        </section>
+
+        <!-- PAGE 2: INDUSTRY -->
+        <section id="industry" class="content-section">
+            <div class="cards-grid">
+                <article class="card industry">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">⚙️</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Công Nghiệp Đa Dạng</div>
+                            <div class="card-subtitle">Từ truyền thống đến công nghệ cao</div>
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">18,4%</div>
+                            <div class="stat-label">GDP (2020)</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">>10%</div>
+                            <div class="stat-label">Lao động</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">#2</div>
+                            <div class="stat-label">Giá trị SX TG</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('ind1')">Cơ cấu ngành ↓</button>
+                    <div id="ind1" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Công nghệ cao:</strong> Hàng không vũ trụ, điện tử, tin học - Tăng tỷ trọng mạnh</li>
+                                <li><strong>Ngành truyền thống:</strong> Dệt may, luyện kim - Giảm tỷ trọng, chuyển ra nước ngoài</li>
+                                <li><strong>Ô tô:</strong> Detroit vẫn là trung tâm, cạnh tranh gay gắt với Nhật, Hàn, Đức</li>
+                                <li><strong>Tự động hóa:</strong> Robot công nghiệp phổ biến, nhà máy thông minh</li>
+                                <li><strong>Năng lượng tái tạo:</strong> Điện mặt trờ, điện gió phát triển nhanh</li>
+                                <li><strong>R&D:</strong> Đầu tư nghiên cứu ~3% GDP, dẫn đầu đổi mới sáng tạo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card industry">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">⛽</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Năng Lượng & Khai Khoáng</div>
+                            <div class="card-subtitle">Cách mạng shale oil thay đổi địa chính trị</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar" style="height: 11.3%; background: linear-gradient(180deg, #64748b, #475569);">
+                                    <span class="bar-value">484,7</span>
+                                </div>
+                                <span class="bar-label">Than đá</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 16.6%; background: linear-gradient(180deg, #fbbf24, #d97706);">
+                                    <span class="bar-value">712,7</span>
+                                </div>
+                                <span class="bar-label">Dầu mỏ</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 21.3%; background: linear-gradient(180deg, #60a5fa, #3b82f6);">
+                                    <span class="bar-value">914,6</span>
+                                </div>
+                                <span class="bar-label">Khí đốt</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 100%; background: linear-gradient(180deg, #a78bfa, #8b5cf6);">
+                                    <span class="bar-value">4286,6</span>
+                                </div>
+                                <span class="bar-label">Điện</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('ind2')">Chi tiết ↓</button>
+                    <div id="ind2" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Than đá:</strong> Giảm 50% (974→484,7 triệu tấn) - Chuyển sang năng lượng sạch</li>
+                                <li><strong>Dầu mỏ:</strong> Tăng gấp đôi (+105%) nhờ cách mạng shale oil/fracking</li>
+                                <li><strong>Khí tự nhiên:</strong> Tăng 76% - Thay thế than trong sản xuất điện</li>
+                                <li><strong>Năng lượng xanh:</strong> Gió + Mặt trờ tăng từ 2% lên 12% (2020)</li>
+                                <li><strong>Xuất khẩu LNG:</strong> Hoa Kỳ trở thành nhà xuất khẩu khí đốt lớn nhất (2022)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card industry">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">🚀</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Công Nghiệp Cao Cấp</div>
+                            <div class="card-subtitle">Dẫn đầu toàn cầu về công nghệ</div>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">Hàng không</div>
+                            <div class="timeline-content">
+                                <strong>Boeing, Lockheed Martin, SpaceX</strong>
+                                #1 thế giới: máy bay, vệ tinh, tên lửa, vũ trụ
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">Bán dẫn</div>
+                            <div class="timeline-content">
+                                <strong>Intel, NVIDIA, Qualcomm, AMD</strong>
+                                Chip xử lý, GPU - Thiết kế Mỹ, sản xuất Đài Loan/Hàn
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">Phần mềm</div>
+                            <div class="timeline-content">
+                                <strong>Microsoft, Google, Amazon AWS</strong>
+                                Điện toán đám mây, AI, hệ điều hành
+                            </div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('ind3')">Trung tâm công nghệ ↓</button>
+                    <div id="ind3" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Silicon Valley (CA):</strong> Apple, Google, Facebook, Tesla, Netflix - Trung tâm đổi mới toàn cầu</li>
+                                <li><strong>Seattle (WA):</strong> Microsoft, Amazon, Boeing - Điện toán đám mây và hàng không</li>
+                                <li><strong>Austin (TX):</strong> Samsung, TSMC đầu tư chip, startup công nghệ</li>
+                                <li><strong>Boston (MA):</strong> Sinh học công nghệ, y tế, AI - MIT, Harvard</li>
+                                <li><strong>CHIPS Act 2022:</strong> 52 tỉ USD thúc đẩy sản xuất bán dẫn trong nước</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card industry">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">🗺️</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Phân Bố Địa Lý</div>
+                            <div class="card-subtitle">Từ Rust Belt đến Sun Belt</div>
+                        </div>
+                    </div>
+                    <div class="map-grid">
+                        <div class="region-card">
+                            <div class="region-name">🏭 Đông Bắc</div>
+                            <div class="region-desc">Truyền thống: Ô tô, thép. Hiện đại: Công nghệ sinh học, y tế</div>
+                        </div>
+                        <div class="region-card">
+                            <div class="region-name">⛽ Vịnh Mexico</div>
+                            <div class="region-desc">Dầu khí, lọc hóa dầu, hàng không vũ trụ</div>
+                        </div>
+                        <div class="region-card">
+                            <div class="region-name">🌴 Thái Bình Dương</div>
+                            <div class="region-desc">Công nghệ cao, điện tử, giải trí Hollywood</div>
+                        </div>
+                        <div class="region-card">
+                            <div class="region-name">🌽 Trung Tây</div>
+                            <div class="region-desc">Nông nghiệp, chế biến thực phẩm, máy móc</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('ind4')">Xu hướng ↓</button>
+                    <div id="ind4" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Deindustrialization:</strong> Công nghiệp nặng chuyển sang Mexico, Trung Quốc (1970-2000)</li>
+                                <li><strong>Sun Belt Migration:</strong> Dân cư/doanh nghiệp di chuyển về phía Nam (Texas, Florida) - thuế thấp, thời tiết đẹp</li>
+                                <li><strong>Reshoring (2020+):</strong> COVID-19 và căng thẳng Mỹ-Trung thúc đẩy đưa sản xuất về Mỹ</li>
+                                <li><strong>Nearshoring:</strong> Chuyển từ Trung Quốc sang Mexico, Canada - gần hơn, chi phí thấp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🛢️ Cách Mạng Shale Oil</h3>
+                <p>Phát minh fracking (2008) biến Hoa Kỳ từ nhà nhập khẩu thành nhà sản xuất dầu lớn nhất thế giới (2018), vượt Saudi Arabia và Nga. Giảm phụ thuộc Trung Đông, tạo triệu việc làm ở Texas, North Dakota.</p>
+            </div>
+        </section>
+
+        <!-- PAGE 3: SERVICES -->
+        <section id="services" class="content-section">
+            <div class="cards-grid">
+                <article class="card services">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">💼</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Dịch Vụ - Trụ Cột Kinh Tế</div>
+                            <div class="card-subtitle">Nền tảng của nền kinh tế tri thức</div>
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">~80%</div>
+                            <div class="stat-label">GDP</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">~80%</div>
+                            <div class="stat-label">Việc làm</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">#1</div>
+                            <div class="stat-label">Đa dạng</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('serv1')">Cơ cấu ↓</button>
+                    <div id="serv1" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Chuyên môn & Kỹ thuật:</strong> Luật, tài chính, tư vấn - ~15% GDP</li>
+                                <li><strong>Y tế:</strong> Bệnh viện, phòng khám - Ngành lớn nhất về việc làm</li>
+                                <li><strong>Bán lẻ:</strong> Walmart, Amazon, Costco - Hệ thống phân phối hiện đại nhất</li>
+                                <li><strong>Giáo dục:</strong> Harvard, MIT, Stanford - Thu hút sinh viên quốc tế</li>
+                                <li><strong>Bất động sản:</strong> Thị trường nhà đất lớn nhất thế giới</li>
+                                <li><strong>Viễn thông:</strong> 5G, internet băng rộng, trung tâm dữ liệu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card services">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">📈</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Thương Mại Quốc Tế</div>
+                            <div class="card-subtitle">Cường quốc thương mại toàn cầu</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar" style="height: 43.6%; background: linear-gradient(180deg, #10b981, #059669);">
+                                    <span class="bar-value">2.148,6</span>
+                                </div>
+                                <span class="bar-label">Xuất khẩu</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 56.4%; background: linear-gradient(180deg, #ef4444, #dc2626);">
+                                    <span class="bar-value">2.776,1</span>
+                                </div>
+                                <span class="bar-label">Nhập khẩu</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 100%; background: linear-gradient(180deg, #f59e0b, #d97706);">
+                                    <span class="bar-value">4.924,7</span>
+                                </div>
+                                <span class="bar-label">Tổng</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('serv2')">Cán cân TM ↓</button>
+                    <div id="serv2" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Thâm hụt:</strong> Nhập siêu liên tục từ 1970s, đỉnh 792 tỉ USD (2020)</li>
+                                <li><strong>Nhập khẩu:</strong> Điện tử, máy móc, dầu thô, quần áo, đồ chơi</li>
+                                <li><strong>Xuất khẩu:</strong> Máy bay, dược phẩm, xăng dầu, nông sản, chip</li>
+                                <li><strong>Đối tác:</strong> Trung Quốc (#1), Canada, Mexico (USMCA), Nhật, Đức</li>
+                                <li><strong>Chiến tranh TM:</strong> Mỹ-Trung 2018-2020, thuế quan hàng trăm tỉ USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card services">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">🏦</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Tài Chính Ngân Hàng</div>
+                            <div class="card-subtitle">Trung tâm tài chính toàn cầu</div>
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">>20%</div>
+                            <div class="stat-label">GDP</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">~4%</div>
+                            <div class="stat-label">Lao động</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">Wall St</div>
+                            <div class="stat-label">Trung tâm</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('serv3')">Hệ thống ↓</button>
+                    <div id="serv3" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Phố Wall:</strong> NYSE, NASDAQ - Vốn hóa >30 nghìn tỉ USD</li>
+                                <li><strong>Ngân hàng lớn:</strong> JPMorgan Chase, Bank of America, Wells Fargo</li>
+                                <li><strong>Quỹ đầu tư:</strong> BlackRock, Vanguard quản lý hàng nghìn tỉ USD</li>
+                                <li><strong>Fintech:</strong> PayPal, Square, Stripe, Robinhood - Đổi mới thanh toán</li>
+                                <li><strong>USD:</strong> Đồng tiền dự trữ toàn cầu (>60%), định giá hàng hóa</li>
+                                <li><strong>Khủng hoảng 2008:</strong> Lehman Brothers sụp đổ, bailout 700 tỉ USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card services">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">🚗</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Giao Thông Vận Tải</div>
+                            <div class="card-subtitle">Hệ thống logistics hiện đại bậc nhất</div>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">Đường bộ</div>
+                            <div class="timeline-content">
+                                <strong>6,5 triệu km</strong> - Lớn nhất thế giới. Interstate Highway System (1956)
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">Đường sắt</div>
+                            <div class="timeline-content">
+                                <strong>>239 nghìn km</strong> - Chủ yếu chở hàng, tự động hóa cao
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">Hàng không</div>
+                            <div class="timeline-content">
+                                <strong>Nhiều sân bay nhất TG</strong> - Atlanta (ATL) bận rộn nhất thế giới
+                            </div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('serv4')">Logistics ↓</button>
+                    <div id="serv4" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Cảng biển:</strong> Los Angeles, Long Beach, New York - Top 10 thế giới</li>
+                                <li><strong>Trucking:</strong> 70% hàng hóa vận chuyển bằng xe tải - Ngành 800 tỉ USD</li>
+                                <li><strong>Amazon Effect:</strong> Giao hàng 2 giờ, 1 ngày trở thành tiêu chuẩn</li>
+                                <li><strong>Tương lai:</strong> Xe tự lái (Tesla, Waymo), drone giao hàng</li>
+                                <li><strong>Infrastructure Act:</strong> 1.200 tỉ USD nâng cấp đường xá, cầu cống</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card services card-fullwidth">
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">✈️</div>
+                        <div class="card-title-group">
+                            <div class="card-title">Du Lịch và Dịch Vụ Lữ Hành</div>
+                            <div class="card-subtitle">Ngành dịch vụ quan trọng, thu hút khách quốc tế</div>
+                        </div>
+                    </div>
+                    <div class="stats-grid-4">
+                        <div class="stat-box">
+                            <div class="stat-number">79,4tr</div>
+                            <div class="stat-label">Khách QT (2019)</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">193,3tỉ</div>
+                            <div class="stat-label">USD doanh thu</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">#1</div>
+                            <div class="stat-label">Doanh thu TG</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">63</div>
+                            <div class="stat-label">Vườn QG</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="toggleDetail('serv5')">Điểm đến ↓</button>
+                    <div id="serv5" class="detail-panel">
+                        <div class="detail-content">
+                            <ul class="detail-list">
+                                <li><strong>Thành phố:</strong> New York (Tượng Nữ thần, Times Square), Los Angeles (Hollywood), Las Vegas, Miami</li>
+                                <li><strong>Thiên nhiên:</strong> Grand Canyon, Yellowstone, Yosemite - Vườn quốc gia nổi tiếng</li>
+                                <li><strong>Giải trí:</strong> Walt Disney World (Orlando), Universal Studios, Broadway (New York)</li>
+                                <li><strong>Văn hóa:</strong> Washington D.C. (Nhà Trắng), Boston, Philadelphia</li>
+                                <li><strong>COVID-19:</strong> Sụt giảm 70% (2020), phục hồi mạnh từ 2021-2022</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="highlight-box">
+                <h3>💻 Nền Kinh Tế Số và GAFAM</h3>
+                <p>Google, Amazon, Facebook, Apple, Microsoft chi phối nền kinh tế số toàn cầu, tạo ra hàng triệu việc làm và giá trị vốn hóa vượt 10 nghìn tỉ USD. Cùng Netflix, Tesla, NVIDIA, các công ty công nghệ Mỹ dẫn đầu đổi mới AI, điện toán đám mây, xe điện.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-title">Tổng hợp từ tài liệu Địa lý 11 - Bộ GD&ĐT Việt Nam</div>
+            <div class="footer-source">
+                Nguồn: FAO (2022), BP (2022), World Bank (2022), Fed, Bộ Thương mại Hoa Kỳ<br>
+                Thông tin bổ sung: Cục Thống kê Lao động, các tổ chức quốc tế uy tín
+            </div>
+            <div class="footer-copy">
+                © Infographic tương tác | Tối ưu cho mobile | Cập nhật 2024
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Tab switching
+        function showTab(tabName) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active from all buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active to clicked button
+            event.target.closest('.nav-btn').classList.add('active');
+
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle detail panels
+        function toggleDetail(id) {
+            const panel = document.getElementById(id);
+            const btn = event.target.closest('.action-btn');
+            const isShowing = panel.classList.contains('show');
+
+            // Close all other panels in the same card (optional)
+            // panel.closest('.cards-grid').querySelectorAll('.detail-panel').forEach(p => {
+            //     if (p.id !== id) p.classList.remove('show');
+            // });
+
+            if (isShowing) {
+                panel.classList.remove('show');
+                btn.innerHTML = btn.innerHTML.replace('↑', '↓').replace('Thu gọn', 'Xem chi tiết').replace('Thu gọn', 'Chi tiết');
+            } else {
+                panel.classList.add('show');
+                btn.innerHTML = btn.innerHTML.replace('↓', '↑').replace('Xem chi tiết', 'Thu gọn').replace('Chi tiết', 'Thu gọn');
+
+                // Smooth scroll to panel
+                setTimeout(() => {
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+
+        // Prevent double-tap zoom on buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                this.click();
+            });
+        });
+
+        // Add touch feedback
+        document.querySelectorAll('.card, .nav-btn, .action-btn').forEach(el => {
+            el.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            el.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Handle orientation change
+        window.addEventListener('orientationchange', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
+    </script>
+</body>
+</html>
