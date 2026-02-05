@@ -815,6 +815,28 @@
             font-size: 0.5rem;
         }
 
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            border-radius: 10px;
+            font-size: 0.65rem;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulse 2s infinite;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.95); }
+        }
+
         .offline-badge {
             background: rgba(148, 163, 184, 0.1) !important;
             border-color: rgba(148, 163, 184, 0.2) !important;
@@ -927,8 +949,8 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">🌾</div>
                         <div class="card-title-group">
-                            <div class="card-title">Nông Nghiệp Hiện Đại</div>
-                            <div class="card-subtitle">Quy mô lớn, năng suất cao - Hàng đầu thế giới</div>
+                            <div class="card-title">Nông Nghiệp Hiện Đại <span class="live-badge">● LIVE</span></div>
+                            <div class="card-subtitle">Quy mô lớn, năng suất cao - Hàng đầu thế giới (FRED API)</div>
                         </div>
                     </div>
                     <div class="stats-grid">
@@ -1126,8 +1148,8 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">⚙️</div>
                         <div class="card-title-group">
-                            <div class="card-title">Công Nghiệp Đa Dạng</div>
-                            <div class="card-subtitle">Từ truyền thống đến công nghệ cao</div>
+                            <div class="card-title">Công Nghiệp Đa Dạng <span class="live-badge">● LIVE</span></div>
+                            <div class="card-subtitle">Từ truyền thống đến công nghệ cao (FRED + EIA API)</div>
                         </div>
                     </div>
                     <div class="stats-grid">
@@ -1163,35 +1185,43 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">⛽</div>
                         <div class="card-title-group">
-                            <div class="card-title">Năng Lượng & Khai Khoáng</div>
-                            <div class="card-subtitle">Cách mạng shale oil thay đổi địa chính trị<span class="update-badge" id="eia-badge">EIA 2024</span></div>
+                            <div class="card-title">Năng Lượng & Khai Khoáng <span class="live-badge">● LIVE</span></div>
+                            <div class="card-subtitle">Cách mạng shale oil thay đổi địa chính trị<span class="update-badge" id="eia-badge">EIA API</span></div>
                         </div>
                     </div>
                     <div class="chart-container">
-                        <div class="bar-chart" id="energyChart">
-                            <div class="bar-item">
-                                <div class="bar" id="coal-bar" style="height: 24px; background: linear-gradient(180deg, #64748b, #475569);">
-                                    <span class="bar-value" id="coal-val">512</span>
+                        <div style="margin-bottom: 20px;">
+                            <div style="font-size: 0.85rem; font-weight: 600; color: #64748b; margin-bottom: 10px;">Nhiên liệu hóa thạch (triệu tấn/năm)</div>
+                            <div class="bar-chart" id="energyChartFossil">
+                                <div class="bar-item">
+                                    <div class="bar" id="coal-bar" style="height: 80px; background: linear-gradient(180deg, #64748b, #475569);">
+                                        <span class="bar-value" id="coal-val">512</span>
+                                    </div>
+                                    <span class="bar-label">Than đá<br>2024</span>
                                 </div>
-                                <span class="bar-label">Than đá<br>2024 (triệu tấn)</span>
+                                <div class="bar-item">
+                                    <div class="bar" id="oil-bar" style="height: 100px; background: linear-gradient(180deg, #fbbf24, #d97706);">
+                                        <span class="bar-value" id="oil-val">640</span>
+                                    </div>
+                                    <span class="bar-label">Dầu mỏ<br>2024</span>
+                                </div>
                             </div>
-                            <div class="bar-item">
-                                <div class="bar" id="oil-bar" style="height: 30px; background: linear-gradient(180deg, #fbbf24, #d97706);">
-                                    <span class="bar-value" id="oil-val">640</span>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; color: #64748b; margin-bottom: 10px;">Khí đốt & Điện</div>
+                            <div class="bar-chart" id="energyChartGasElec">
+                                <div class="bar-item">
+                                    <div class="bar" id="gas-bar" style="height: 60px; background: linear-gradient(180deg, #60a5fa, #3b82f6);">
+                                        <span class="bar-value" id="gas-val">1.076</span>
+                                    </div>
+                                    <span class="bar-label">Khí đốt<br>(tỉ m³)</span>
                                 </div>
-                                <span class="bar-label">Dầu mỏ<br>2024 (triệu tấn)</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar" id="gas-bar" style="height: 50px; background: linear-gradient(180deg, #60a5fa, #3b82f6);">
-                                    <span class="bar-value" id="gas-val">1.076</span>
+                                <div class="bar-item">
+                                    <div class="bar" id="elec-bar" style="height: 80px; background: linear-gradient(180deg, #a78bfa, #8b5cf6);">
+                                        <span class="bar-value" id="elec-val">4.200</span>
+                                    </div>
+                                    <span class="bar-label">Điện<br>(tỉ kWh)</span>
                                 </div>
-                                <span class="bar-label">Khí đốt<br>2024 (tỉ m³)</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar" id="elec-bar" style="height: 100px; background: linear-gradient(180deg, #a78bfa, #8b5cf6);">
-                                    <span class="bar-value" id="elec-val">4.200</span>
-                                </div>
-                                <span class="bar-label">Điện<br>2024 (tỉ kWh)</span>
                             </div>
                         </div>
                     </div>
@@ -1345,29 +1375,29 @@
                     <div class="card-header">
                         <div class="card-icon-wrapper">📈</div>
                         <div class="card-title-group">
-                            <div class="card-title">Thương Mại Quốc Tế</div>
-                            <div class="card-subtitle">Cường quốc thương mại toàn cầu</div>
+                            <div class="card-title">Thương Mại Quốc Tế <span class="live-badge">● LIVE</span></div>
+                            <div class="card-subtitle">Cường quốc thương mại toàn cầu<span class="update-badge" id="trade-badge">World Bank API</span></div>
                         </div>
                     </div>
                     <div class="chart-container">
                         <div class="bar-chart" id="tradeChart">
                             <div class="bar-item">
                                 <div class="bar" style="height: 42px; background: linear-gradient(180deg, #10b981, #059669);">
-                                    <span class="bar-value">3.020</span>
+                                    <span class="bar-value" id="export-val">3.020</span>
                                 </div>
-                                <span class="bar-label">Xuất khẩu<br>2024 (tỉ USD)</span>
+                                <span class="bar-label">Xuất khẩu<br>(tỉ USD)</span>
                             </div>
                             <div class="bar-item">
                                 <div class="bar" style="height: 58px; background: linear-gradient(180deg, #ef4444, #dc2626);">
-                                    <span class="bar-value">4.100</span>
+                                    <span class="bar-value" id="import-val">4.100</span>
                                 </div>
-                                <span class="bar-label">Nhập khẩu<br>2024 (tỉ USD)</span>
+                                <span class="bar-label">Nhập khẩu<br>(tỉ USD)</span>
                             </div>
                             <div class="bar-item">
                                 <div class="bar" style="height: 100px; background: linear-gradient(180deg, #f59e0b, #d97706);">
-                                    <span class="bar-value">7.120</span>
+                                    <span class="bar-value" id="trade-total-val">7.120</span>
                                 </div>
-                                <span class="bar-label">Tổng TM<br>2024 (tỉ USD)</span>
+                                <span class="bar-label">Tổng TM<br>(tỉ USD)</span>
                             </div>
                         </div>
                     </div>
@@ -1532,8 +1562,9 @@
             EIA: 'GV6neHooAJjEUbyLFey4YLamCaqu1c1bkkitj5vT'
         };
 
-        // CORS Proxy URLs (miễn phí)
+        // CORS Proxy URLs (miễn phí) - ưu tiên corsproxy.io
         const CORS_PROXIES = [
+            'https://corsproxy.io/?url=',
             'https://api.allorigins.win/get?url=',
             'https://api.codetabs.com/v1/proxy?quest=',
             'https://thingproxy.freeboard.io/fetch/'
@@ -1595,6 +1626,8 @@
             for (let i = 0; i < retries; i++) {
                 try {
                     const proxyUrl = getProxyUrl(url);
+                    console.log('Trying proxy:', CORS_PROXIES[currentProxyIndex]);
+
                     const response = await fetch(proxyUrl, {
                         ...options,
                         headers: {
@@ -1606,15 +1639,18 @@
                     if (!response.ok) throw new Error('HTTP ' + response.status);
 
                     const data = await response.json();
+
+                    // corsproxy.io trả về data trực tiếp
                     // AllOrigins trả về data trong contents
                     if (data.contents) {
                         return JSON.parse(data.contents);
                     }
                     return data;
                 } catch (e) {
+                    console.log('Proxy failed:', CORS_PROXIES[currentProxyIndex], e.message);
                     if (i === retries - 1) throw e;
                     tryNextProxy();
-                    await new Promise(r => setTimeout(r, 1000));
+                    await new Promise(r => setTimeout(r, 1500));
                 }
             }
         }
@@ -1674,7 +1710,7 @@
         }
 
         // Cập nhật số liệu
-        function updateStat(elementId, value, source) {
+        function updateStat(elementId, value, source, dateStr) {
             const el = document.getElementById(elementId);
             if (!el) return;
 
@@ -1682,7 +1718,25 @@
             el.classList.add('updating');
             setTimeout(() => el.classList.remove('updating'), 500);
 
-            addBadge(elementId, source);
+            // Tạo label hiển thị với date động
+            let displayLabel = source;
+            if (dateStr) {
+                // Format date: YYYY-QX hoặc YYYY-MM hoặc YYYY
+                if (dateStr.includes('-')) {
+                    const parts = dateStr.split('-');
+                    if (parts[1] && (parts[1].startsWith('Q') || ['01','02','03','04'].includes(parts[1]))) {
+                        // Quarterly data: 2025-Q3
+                        displayLabel = `${parts[0]}-${parts[1]}`;
+                    } else {
+                        // Monthly or yearly
+                        displayLabel = parts[0];
+                    }
+                } else {
+                    displayLabel = dateStr;
+                }
+            }
+
+            addBadge(elementId, displayLabel);
         }
 
         // Thêm badge nguồn
